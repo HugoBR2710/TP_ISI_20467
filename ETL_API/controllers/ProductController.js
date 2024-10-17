@@ -1,68 +1,81 @@
-const User = require('../models/Product.js')
+const User = require("../models/Product.js");
 
 module.exports = class ProductController {
+  // static async showProducts(req, res) {
+  //     const products = await Product.find().lean()
 
-    // static async showProducts(req, res) {
-    //     const products = await Product.find().lean()
+  //     res.render('products/all', { products })
+  // }
 
+  // static createProduct(req, res) {
+  //     res.render('products/create')
+  // }
 
-    //     res.render('products/all', { products })
-    // }
+  static createProductPost(req, res) {
+    const Nome = req.body.Nome;
+    const Telemovel = req.body.Telemovel;
+    const Referencia = req.body.Referencia;
+    const Familia = req.body.Familia;
+    const Nacionalidade = req.body.Nacionalidade;
+    const Pedidos = req.body.Pedidos;
+    const Notas = req.body.Notas;
+    const Visitas = req.body.Visitas;
 
-    // static createProduct(req, res) {
-    //     res.render('products/create')
-    // }
+    const user = new User({
+      Nome,
+      Telemovel,
+      Referencia,
+      Familia,
+      Nacionalidade,
+      Pedidos,
+      Notas,
+      Visitas,
+    });
 
-    static createProductPost(req, res) {
-        const name = req.body.name
-        const image = req.body.image
-        const price = req.body.price
-        const description = req.body.description
-
-        const product = new User({ name, image, price, description })
-
-        product.save()
-
-        res.redirect('/products')
-
+    try {
+      user.save();
+      res.status(201).json({ message: "Registado com sucesso: ", user });
+    } catch (error) {
+      res.status(501).json({ message: "Erro na criação de beneficiário " });
     }
+  }
 
-    // static async getProduct(req, res) {
-    //     const id = req.params.id
+  // static async getProduct(req, res) {
+  //     const id = req.params.id
 
-    //     const product = await Product.findById(id).lean()
+  //     const product = await Product.findById(id).lean()
 
-    //     res.render('products/product', { product })
-    // }
+  //     res.render('products/product', { product })
+  // }
 
-    // static async removeProduct(req, res) {
-    //     const id = req.params.id
+  // static async removeProduct(req, res) {
+  //     const id = req.params.id
 
-    //     await Product.deleteOne({_id: id})
+  //     await Product.deleteOne({_id: id})
 
-    //     res.redirect('/products')
-    // }
+  //     res.redirect('/products')
+  // }
 
-    // static async editProduct(req, res) {
-    //     const id = req.params.id
+  // static async editProduct(req, res) {
+  //     const id = req.params.id
 
-    //     const product = await Product.findById(id).lean()
+  //     const product = await Product.findById(id).lean()
 
-    //     res.render('products/edit', { product })
-    // }
+  //     res.render('products/edit', { product })
+  // }
 
-    // static async editProductPost(req, res) {
+  // static async editProductPost(req, res) {
 
-    //     const id = req.body.id
-    //     const name = req.body.name
-    //     const image = req.body.image
-    //     const price = req.body.price
-    //     const description = req.body.description
+  //     const id = req.body.id
+  //     const name = req.body.name
+  //     const image = req.body.image
+  //     const price = req.body.price
+  //     const description = req.body.description
 
-    //     const product = {name, image, price, description}
+  //     const product = {name, image, price, description}
 
-    //     await Product.updateOne({_id: id}, product)
+  //     await Product.updateOne({_id: id}, product)
 
-    //     res.redirect('/products')        
-    // }
-}
+  //     res.redirect('/products')
+  // }
+};
