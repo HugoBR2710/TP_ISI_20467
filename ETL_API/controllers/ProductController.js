@@ -2,16 +2,20 @@ const User = require('../models/Product.js')
 
 module.exports = class ProductController {
 
-    // static async showProducts(req, res) {
-    //     const products = await Product.find().lean()
+    static async showUsers(req, res) {
 
+        try {
+            const users = await User.find().lean()
+            res.status(201).json({ users })
+        } catch (error) {
+            res.status(501).json({message: "Erro ao efetuar o get à bd.", error})
+        }
 
-    //     res.render('products/all', { products })
-    // }
+    }
 
-    // static createProduct(req, res) {
-    //     res.render('products/create')
-    // }
+    static createProduct(req, res) {
+        res.render('products/create')
+    }
 
     static createProductPost(req, res) {
         const name = req.body.name
@@ -24,7 +28,6 @@ module.exports = class ProductController {
         product.save()
 
         res.redirect('/products')
-
     }
 
     // static async getProduct(req, res) {
