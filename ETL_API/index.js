@@ -2,7 +2,7 @@ const express = require('express')
 
 const app = express()
 
-const conn = require("./db/conn")
+const conn = require('./db/conn')
 
 const productRoutes = require('./routes/productRoutes')
 
@@ -18,6 +18,6 @@ app.use(express.json())
 
 app.use(express.static('public'))
 
-app.use('/products', productRoutes)
+app.use('/users', productRoutes)
 
 app.listen(3000)
