@@ -4,7 +4,6 @@ const app = express()
 
 const conn = require('./db/conn')
 
-
 const productRoutes = require('./routes/productRoutes')
 
 
