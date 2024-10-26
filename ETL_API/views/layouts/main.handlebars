@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Social</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    {{#if session.userid}}
+    <nav id="navbar">
+        <a href="/users/landingpage" id="logo">
+            <img src="/img/logo.png" alt="Loja Social">
+        </a>
+        <ul>
+            {{!-- URLS APOS AUTHENTICATE --}}
+            <li><a href="/users/">Beneficiários</a></li>
+            <li><a href="/users/statistics">Estatisticas</a></li>
+            <li><a href="/auth/logout">Sair</a></li>
+        </ul>
+    </nav>
+    {{else}}
+    <nav id="navbar">
+        <a href="/auth/login" id="logo">
+            <img src="/img/logo.png" alt="Loja Social">
+        </a>
+        <ul>
+            <li><a href="/auth/login">Entrar</a></li>
+            <li><a href="/auth/register">Registar</a></li>
+        </ul>
+    </nav>
+    {{/if}}
+    <div class="container">
+        {{{body}}}
+    </div>
+    <footer>
+        <p><span>Loja Social</span> &copy; 2024</p>
+    </footer>
+</body>
+
+</html>

@@ -4,17 +4,24 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./index.js http://localhost:3000"
+    "start": "nodemon ./index.js http://localhost:3000/auth/login"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.3",
+    "cookie-parser": "^1.4.5",
+    "cookie-session": "^1.4.0",
     "express": "^4.21.0",
     "express-handlebars": "^5.3.5",
+    "express-session": "^1.17.2",
     "mongodb": "^6.9.0",
     "mongoose": "^8.7.1",
-    "nodemon": "^3.1.7"
+    "nodemon": "^3.1.7",
+    "session-file-store": "^1.5.0",
+    "xml2js": "^0.6.2"
   }
 }

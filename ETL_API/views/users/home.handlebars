@@ -1,0 +1,44 @@
+<div class="home-header">
+    <h1><span>Beneficiários</span></h1>
+    {{!-- {{#if search}}
+    <h1>Procuraste por: <span>{{search}}</span></h1>
+    {{#if toughtsQty}}
+    <p>Foram encontrados <span>{{toughtsQty}}</span> pensamentos</p>
+    {{else}}
+    <p>Não foram encontrados nenhuns <span>pensamentos</span> com o termo <span>{{search}}</span>!</p>
+    {{/if}}
+    {{else}}
+    {{/if}} --}}
+    {{!-- <form action="/" method="GET">
+        <input type="text" name="search" placeholder="O que procuras?">
+        <input type="submit" class="btn" value="Procurar">
+    </form>
+    <div class="order-container">
+        <span>Ordenar por:</span>
+        <form action="/" method="GET">
+            <input type="hidden" name="search" value="{{this.search}}">
+            <input type="hidden" name="order" value="new">
+            <button type="submit"><i class="bi bi-arrow-up"></i></button>
+        </form>
+        <form action="/" method="GET">
+            <input type="hidden" name="search" value="{{this.search}}">
+            <input type="hidden" name="order" value="old">
+            <button type="submit"><i class="bi bi-arrow-down"></i></button>
+        </form>
+        <a href="/">Limpar</a>
+    </div> --}}
+</div>
+<div class="toughts-container">
+    {{#each users}}
+    <figure>
+        <blockquote>
+            <h3>Nome:</h3>"{{this.Nome}}"
+            <h3>Telemovel:</h3>"{{this.Telemovel}}"
+            <h3>Familia:</h3>"{{this.Familia}}"
+            <h3>Nacionalidade:</h3>"{{this.Nacionalidade}}"
+            <h3>Pedidos:</h3>"{{this.Pedidos}}"
+            <h3>Visitas:</h3>"{{this.Visitas}}"
+        </blockquote>
+    </figure>
+    {{/each}}
+</div>
